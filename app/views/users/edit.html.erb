@@ -1,0 +1,23 @@
+<%=form_with model:@user do|form| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this article from being saved:</h2>
+  
+      <ul>
+        <% @user.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%=form.label "Email" %>
+  <%=form.text_field :email ,placeholder:"email@example.com"%>
+  <br>
+  <%=form.label "User Name" %>
+  <%=form.text_field :username ,placeholder:"username" %>
+  <br>
+  <%=form.label "Password" %>
+  <%=form.password_field :password ,placeholder:"password" %>
+  <br>
+  <%= form.submit "Create"%>
+<%end %>
